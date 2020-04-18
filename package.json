@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "NODE_ENV=test jest --detectOpenHandles",
+    "test": "NODE_ENV=test jest --detectOpenHandles --coverage",
     "dev": "NODE_ENV=development nodemon bin/http.js"
   },
   "repository": {
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/MoodEat/server#readme",
   "dependencies": {
+    "@shelf/jest-mongodb": "^1.1.5",
     "apollo-server": "^2.12.0",
     "axios": "^0.19.2",
     "dotenv": "^8.2.0",

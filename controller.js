@@ -8,7 +8,8 @@ class Controller {
         try {
             const db = req.db
             const collection = db.collection('anger')
-            const result = await collection.find({}).toArray();            
+            const result = await collection.find({}).toArray(); 
+            console.log(result)          
             res.status(200).json(result)
         } catch (error) {
             res.status(500).json(error)

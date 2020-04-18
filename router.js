@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const Controller = require('./controller')
 
-router.get('/angry', Controller.findAngry)
+router.get('/anger', Controller.findAngry)
 
 router.get('/fear', Controller.findFear)
 
