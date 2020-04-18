@@ -1,14 +1,18 @@
 [
     {
-        "food": "hotang"
+        "food": "hotdog",
+        "image": "https://i.imgur.com/OhRj8Ct.jpg"
     },
     {
-        "food": "ayam geprek"
+        "food": "ayam geprek",
+        "image": "https://i.imgur.com/yQeRJ7S.jpg"
     },
     {
-        "food": "rujak"
+        "food": "rujak",
+        "image": "https://i.imgur.com/p3KQZ63.jpg"
     },
     {
-        "food": "seblak"
+        "food": "seblak",
+        "image": "https://i.imgur.com/M8K1Q1X.jpg"
     }
 ]

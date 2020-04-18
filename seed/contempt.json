@@ -1,14 +1,18 @@
 [
     {
-        "food": "ketoprak"
+        "food": "ketoprak",
+        "image": "https://i.imgur.com/mEtNt7n.jpg"
     },
     {
-        "food": "gorengan"
+        "food": "gorengan",
+        "image": "https://i.imgur.com/RHJMIxv.jpg"
     },
     {
-        "food": "ramen"
+        "food": "ramen",
+        "image": "https://i.imgur.com/QXT8htm.jpg"
     },
     {
-        "food": "nasi padang"
+        "food": "nasi padang",
+        "image": "https://i.imgur.com/zd6WI8p.jpg"
     }
 ]

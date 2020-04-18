@@ -4,10 +4,32 @@ const redis = new Redis()
 const axios = require('axios')
 
 class Controller {
-    static async findAngry (req, res) {        
+    static async findAnger (req, res) {        
         try {
             const db = req.db
             const collection = db.collection('anger')
+            const result = await collection.find({}).toArray();            
+            res.status(200).json(result)
+        } catch (error) {
+            res.status(500).json(error)
+        } 
+    }
+
+    static async findContempt (req, res) {        
+        try {
+            const db = req.db
+            const collection = db.collection('contempt')
+            const result = await collection.find({}).toArray();            
+            res.status(200).json(result)
+        } catch (error) {
+            res.status(500).json(error)
+        } 
+    }
+
+    static async findDisgust (req, res) {        
+        try {
+            const db = req.db
+            const collection = db.collection('disgust')
             const result = await collection.find({}).toArray();            
             res.status(200).json(result)
         } catch (error) {
@@ -26,10 +48,10 @@ class Controller {
         } 
     }
 
-    static async findSad (req, res) {        
+    static async findHappiness (req, res) {        
         try {
             const db = req.db
-            const collection = db.collection('sad')
+            const collection = db.collection('happiness')
             const result = await collection.find({}).toArray();            
             res.status(200).json(result)
         } catch (error) {
@@ -37,10 +59,10 @@ class Controller {
         } 
     }
 
-    static async findHappy (req, res) {        
+    static async findNeutral (req, res) {        
         try {
             const db = req.db
-            const collection = db.collection('happy')
+            const collection = db.collection('neutral')
             const result = await collection.find({}).toArray();            
             res.status(200).json(result)
         } catch (error) {
@@ -48,10 +70,10 @@ class Controller {
         } 
     }
 
-    static async findCalm (req, res) {        
+    static async findSadness (req, res) {        
         try {
             const db = req.db
-            const collection = db.collection('calm')
+            const collection = db.collection('sadness')
             const result = await collection.find({}).toArray();            
             res.status(200).json(result)
         } catch (error) {
@@ -59,43 +81,10 @@ class Controller {
         } 
     }
 
-    static async findSurprised (req, res) {        
+    static async findSurprise (req, res) {        
         try {
             const db = req.db
-            const collection = db.collection('surprised')
-            const result = await collection.find({}).toArray();            
-            res.status(200).json(result)
-        } catch (error) {
-            res.status(500).json(error)
-        } 
-    }
-
-    static async findConfused (req, res) {        
-        try {
-            const db = req.db
-            const collection = db.collection('confused')
-            const result = await collection.find({}).toArray();            
-            res.status(200).json(result)
-        } catch (error) {
-            res.status(500).json(error)
-        } 
-    }
-
-    static async findDisgusted (req, res) {        
-        try {
-            const db = req.db
-            const collection = db.collection('disgusted')
-            const result = await collection.find({}).toArray();            
-            res.status(200).json(result)
-        } catch (error) {
-            res.status(500).json(error)
-        } 
-    }
-
-    static async findFavorites (req, res) {        
-        try {
-            const db = req.db
-            const collection = db.collection('Favorites')
+            const collection = db.collection('surprise')
             const result = await collection.find({}).toArray();            
             res.status(200).json(result)
         } catch (error) {
@@ -105,9 +94,19 @@ class Controller {
 
     static async findRestaurant (req, res) {
         try {
-            const collection = req.collection
-            const result = await collection.findOne({
-                _id: ObjectId(req.params.id)
+            const { data } = await axios ({
+                url: `https://developers.zomato.com/api/v2.1/search?entity_id=74&entity_type=city&q=${req.params.food}`,
+                method: "GET",
+                headers: {
+                    'user-key': "a4d87ea089e4302deea73b2dd99574b1"
+                }
+            })
+            const result = data.restaurants.map( el => {
+                return {
+                    name: el.restaurant.name,
+                    location: el.restaurant.location,
+                    photo_url: el.restaurant.photos[0].photo.url
+                }
             })
             res.status(200).json(result)
         } catch (error) {
@@ -115,9 +114,21 @@ class Controller {
         }
     }
 
+    static async findFavorites (req, res) {        
+        try {
+            const db = req.db
+            const collection = db.collection('Restaurant')
+            const result = await collection.find({}).toArray();            
+            res.status(200).json(result)
+        } catch (error) {
+            res.status(500).json(error)
+        } 
+    }
+
     static async createFavorites (req, res) {
         try {
-            const collection = req.collection
+            const db = req.db
+            const collection = db.collection('Restaurant')
             const { RestaurantId } = req.body
             const result = await collection.insertOne({
                 RestaurantId
@@ -131,7 +142,8 @@ class Controller {
 
     static async deleteFavorites (req, res) {
         try {
-            const collection = req.collection
+            const db = req.db
+            const collection = db.collection('Restaurant')
             const result = await collection.deleteOne({
                 _id: ObjectId(req.params.id)
             })

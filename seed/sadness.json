@@ -1,14 +1,18 @@
 [
     {
-        "food": "bubur"
+        "food": "bubur",
+        "image": "https://i.imgur.com/KgDOnUu.jpg"
     },
     {
-        "food": "somay"
+        "food": "somay",
+        "image": "https://i.imgur.com/Harpe0b.jpg"
     },
     {
-        "food": "kebab"
+        "food": "kebab",
+        "image": "https://i.imgur.com/xUbQSPj.jpg"
     },
     {
-        "food": "gado-gado"
+        "food": "gado-gado",
+        "image": "https://i.imgur.com/R3LWEvn.jpg"
     }
 ]
