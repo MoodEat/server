@@ -1,14 +1,18 @@
 [
     {
-        "food": "nasi goreng"
+        "food": "nasi goreng",
+        "image": "https://i.imgur.com/5kom7yX.jpg"
     },
     {
-        "food": "spaghetty"
+        "food": "spaghetty",
+        "image": "https://i.imgur.com/ekdV0ZV.jpg"
     },
     {
-        "food": "sate"
+        "food": "sate",
+        "image": "https://i.imgur.com/NdKyy4f.jpg"
     },
     {
-        "food": "bakmi"
+        "food": "bakmi",
+        "image": "https://i.imgur.com/1J8a9de.jpg"
     }
 ]

@@ -1,14 +1,18 @@
 [
     {
-        "food": "rawon"
+        "food": "rawon",
+        "image": "https://i.imgur.com/TZGSEtO.jpg"
     },
     {
-        "food": "sushi"
+        "food": "sushi",
+        "image": "https://i.imgur.com/RQBe6Qz.jpg"
     },
     {
-        "food": "bakpia"
+        "food": "bakpia",
+        "image": "https://i.imgur.com/8w9rgjQ.jpg"
     },
     {
-        "food": "omelette"
+        "food": "omelette",
+        "image": "https://i.imgur.com/edNMFCC.jpg"
     }
 ]

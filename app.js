@@ -14,9 +14,9 @@ app.use(express.urlencoded({
 app.use(express.json())
 
 MongoClient.connect(uri, {
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
   })
-  .then( client => {
+  .then( client => {      
       console.log('connected to database')
       const db = client.db(db_name)
       app.use((req, res, next) => {
@@ -25,7 +25,7 @@ MongoClient.connect(uri, {
     })
     app.use(RestaurantRouter)
   })
-  .catch(error => {
+  .catch(error => {      
       console.error(error)
     })
 

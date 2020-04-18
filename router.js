@@ -1,23 +1,23 @@
 const router = require('express').Router();
 const Controller = require('./controller')
 
-router.get('/angry', Controller.findAngry)
+router.get('/anger', Controller.findAnger)
+
+router.get('/contempt', Controller.findContempt)
+
+router.get('/disgust', Controller.findDisgust)
 
 router.get('/fear', Controller.findFear)
 
-router.get('/sad', Controller.findSad)
+router.get('/happiness', Controller.findHappiness)
 
-router.get('/happy', Controller.findHappy)
+router.get('/neutral', Controller.findNeutral)
 
-router.get('/calm', Controller.findCalm)
+router.get('/sadness', Controller.findSadness)
 
-router.get('/surprised', Controller.findSurprised)
+router.get('/surprise', Controller.findSurprise)
 
-router.get('/confused', Controller.findConfused)
-
-router.get('/disgusted', Controller.findDisgusted)
-
-router.get('/restaurant', Controller.findRestaurant )
+router.get('/restaurant/:food', Controller.findRestaurant )
 
 router.post('/favorites', Controller.createFavorites )
 
