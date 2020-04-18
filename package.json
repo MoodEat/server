@@ -2,7 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "NODE_ENV=test jest --detectOpenHandles",
     "dev": "NODE_ENV=development nodemon bin/http.js"
@@ -12,7 +12,7 @@
     "url": "git+https://github.com/MoodEat/server.git"
   },
   "keywords": [],
-  "author": "ulfa hasanah, hikmani syariful fajar",
+  "author": "Andreas Nandiwardhana, Muhammad Hilmi Muharromi, Hikmani Syariful Fajar, Ulfa Hasanah",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/MoodEat/server/issues"
