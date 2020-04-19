@@ -1,5 +1,3 @@
-const Redis = require('ioredis')
-const redis = new Redis()
 
 class categoriesController {
   static async findAnger (req, res, next) {        
