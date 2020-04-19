@@ -33,8 +33,7 @@ class favoriteController {
               name: data.name,
               url: data.url,
               location: data.location,
-              photo_url: data.photos[0].photo.url,
-              photo_thumb_url: data.photos[0].photo.thumb_url
+              photo_url: data.thumb
           })
           res.status(201).json(result.ops[0])
       } catch (error) {

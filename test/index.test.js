@@ -266,7 +266,7 @@ describe('insert', () => {
     beforeAll(async () => {
       collection = db.collection('Restaurant')
       result = await collection.insertOne({
-        id: "18294955",
+        idRestaurant: "18294955",
         name: "Seblak Jeletet Murni",
         location: {
           "address": "Jl. Pademangan 4, Gang 4, Gunung Sahari, Jakarta",
@@ -298,8 +298,9 @@ describe('insert', () => {
             })
             .end((err, response) => {
               expect(err).toBe(null)
-              expect(response.body).toHaveProperty('id')
+              expect(response.body).toHaveProperty('idRestaurant')
               expect(response.body).toHaveProperty('name')
+              expect(response.body).toHaveProperty('url')
               expect(response.body).toHaveProperty('location')
               expect(response.body).toHaveProperty('photo_url')
               expect(response.status).toBe(201)
