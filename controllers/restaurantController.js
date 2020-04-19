@@ -3,6 +3,7 @@ const axios = require('axios')
 class restaurantController {
   static async findRestaurant (req, res, next) {
     try {
+        console.log('MASUK')
         const { data } = await axios ({
             url: `https://developers.zomato.com/api/v2.1/search?entity_id=74&entity_type=city&q=${req.params.food}`,
             method: "GET",
@@ -12,10 +13,12 @@ class restaurantController {
         })
         let result = data.restaurants.map( el => {
             return {
-                id: el.restaurant.id,
+                idRestaurant: el.restaurant.id,
                 name: el.restaurant.name,
+                url: el.restaurant.url,
                 location: el.restaurant.location,
-                photo_url: el.restaurant.thumb
+                photo_url: el.restaurant.photos[0].photo.url,
+                photo_thumb_url: el.restaurant.photos[0].photo.thumb_url
             }
         })
         res.status(200).json(result)
