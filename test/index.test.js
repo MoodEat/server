@@ -47,7 +47,7 @@ describe('insert', () => {
           })
       })
 
-      it('It should return error and return status 500', (done) => {
+      it('It should return error and return status 404', (done) => {
         request(app)
           .post('/anger')
           .send({
@@ -64,7 +64,7 @@ describe('insert', () => {
 
   describe('GET /contempt', () => {
     describe('Success Process', () => {
-      it('It should return data of food categories of anger and return status 200', (done) => {
+      it('It should return data of food categories of contempt and return status 200', (done) => {
         request(app)
           .get('/contempt')
           .end((err, response) => {
@@ -92,7 +92,7 @@ describe('insert', () => {
 
   describe('GET /disgust', () => {
     describe('Success Process', () => {
-      it('It should return data of food categories of anger and return status 200', (done) => {
+      it('It should return data of food categories of disgust and return status 200', (done) => {
         request(app)
           .get('/disgust')
           .end((err, response) => {
@@ -120,7 +120,7 @@ describe('insert', () => {
 
   describe('GET /fear', () => {
     describe('Success Process', () => {
-      it('It should return data of food categories of anger and return status 200', (done) => {
+      it('It should return data of food categories of fear and return status 200', (done) => {
         request(app)
           .get('/fear')
           .end((err, response) => {
@@ -148,7 +148,7 @@ describe('insert', () => {
 
   describe('GET /happiness', () => {
     describe('Success Process', () => {
-      it('It should return data of food categories of anger and return status 200', (done) => {
+      it('It should return data of food categories of happiness and return status 200', (done) => {
         request(app)
           .get('/happiness')
           .end((err, response) => {
@@ -176,7 +176,7 @@ describe('insert', () => {
 
   describe('GET /neutral', () => {
     describe('Success Process', () => {
-      it('It should return data of food categories of anger and return status 200', (done) => {
+      it('It should return data of food categories of neutral and return status 200', (done) => {
         request(app)
           .get('/neutral')
           .end((err, response) => {
@@ -203,7 +203,7 @@ describe('insert', () => {
 
   describe('GET /sadness', () => {
     describe('Success Process', () => {
-      it('It should return data of food categories of anger and return status 200', (done) => {
+      it('It should return data of food categories of sadness and return status 200', (done) => {
         request(app)
           .get('/sadness')
           .end((err, response) => {
@@ -231,7 +231,7 @@ describe('insert', () => {
 
   describe('GET /surprise', () => {
     describe('Success Process', () => {
-      it('It should return data of food categories of anger and return status 200', (done) => {
+      it('It should return data of food categories of surprise and return status 200', (done) => {
         request(app)
           .get('/surprise')
           .end((err, response) => {
@@ -262,9 +262,9 @@ describe('insert', () => {
       it('It should return data array and return status 200', (done) => {
         request(app)
           .get('/restaurant/hotdog')
-          .send({
-            lat: -6.162305,
-            longitude: 106.905851
+          .set({
+              lat: -6.162305,
+              longitude: 106.905851
           })
           .end((err, response) => {
             expect(err).toBe(null)
@@ -275,7 +275,7 @@ describe('insert', () => {
       })
     })
 
-    describe('Success Process', () => {
+    describe('Failed Process', () => {
       it('It should return status 500', (done) => {
         request(app)
           .get('/restaurant/hotdog')
@@ -355,6 +355,7 @@ describe('insert', () => {
       result = await collection.insertOne({
         idRestaurant: "18294955",
         name: "Seblak Jeletet Murni",
+        url: 'https://www.zomato.com/jakarta/bakso-lapangan-tembak-senayan-pondok-gede?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1',
         location: {
           "address": "Jl. Pademangan 4, Gang 4, Gunung Sahari, Jakarta",
           "locality": "Gunung Sahari",

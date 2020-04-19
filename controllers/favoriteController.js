@@ -7,7 +7,7 @@ class favoriteController {
       const db = req.db
       const collection = db.collection('Restaurant')
       const data = await collection.find({}).toArray();   
-      res.status(200).json(result)
+      res.status(200).json(data)
     } catch (error) {
         next(error)
     } 
