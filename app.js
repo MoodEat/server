@@ -6,13 +6,11 @@ const morgan = require('morgan')
 const errorHandler = require('./middlewares/errorhandler')
 const cors = require('cors')
 
-
 const { MongoClient } = require('mongodb')
 const db_name = process.env.DB_NAME
 const user = process.env.DB_USER
 const password = process.env.DB_PASSWORD
 const uri = `mongodb+srv://${user}:${password}@cluster0-gjr7b.mongodb.net/${db_name}?retryWrites=true&w=majority`
-
 
 app.use(cors())
 app.use(morgan('tiny'))
@@ -20,7 +18,6 @@ app.use(express.urlencoded({
     extended: false 
 }))
 app.use(express.json())
-
 
 // client.connect(err => {
 //   if (err) console.log(err)
@@ -36,7 +33,6 @@ app.use(express.json())
 //   app.use(routes)
 //   app.use(errorHandler)
 // })
-
 
 MongoClient.connect(uri, {
   useUnifiedTopology: true
