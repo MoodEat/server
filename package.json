@@ -20,12 +20,9 @@
   "homepage": "https://github.com/MoodEat/server#readme",
   "dependencies": {
     "@shelf/jest-mongodb": "^1.1.5",
-    "apollo-server": "^2.12.0",
     "axios": "^0.19.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "graphql": "^15.0.0",
-    "ioredis": "^4.16.2",
     "jest": "^25.3.0",
     "lodash": "^4.17.15",
     "mongodb": "^3.5.6",
