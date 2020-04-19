@@ -46,6 +46,19 @@ describe('insert', () => {
             done()
           })
       })
+
+      it('It should return error and return status 500', (done) => {
+        request(app)
+          .post('/anger')
+          .send({
+            lat: -6.97755
+          })
+          .end((err, response) => {
+            expect(err).toBe(null)
+            expect(response.status).toBe(404)
+            done()
+          })
+      })
     })
   })
 
@@ -249,10 +262,84 @@ describe('insert', () => {
       it('It should return data array and return status 200', (done) => {
         request(app)
           .get('/restaurant/hotdog')
+          .send({
+            lat: -6.162305,
+            longitude: 106.905851
+          })
           .end((err, response) => {
             expect(err).toBe(null)
             expect(response.body).toEqual(expect.any(Array))
             expect(response.status).toBe(200)
+            done()
+          })
+      })
+    })
+
+    describe('Success Process', () => {
+      it('It should return status 500', (done) => {
+        request(app)
+          .get('/restaurant/hotdog')
+          .end((err, response) => {
+            expect(err).toBe(null)
+            expect(response.status).toBe(500)
+            done()
+          })
+      })
+
+      it('It should return status 500', (done) => {
+        request(app)
+          .get('/restaurant/hotdog')
+          .set({
+            params: {
+              lat: -6.162305,
+              longitude: 106.905851
+            }
+          })
+          .end((err, response) => {
+            expect(err).toBe(null)
+            expect(response.status).toBe(500)
+            done()
+          })
+      })
+
+      it('It should return status 500', (done) => {
+        request(app)
+          .get('/restaurant/hotdog')
+          .send({
+            params: {
+              lat: -6.162305,
+              longitude: 106.905851
+            }
+          })
+          .end((err, response) => {
+            expect(err).toBe(null)
+            expect(response.status).toBe(500)
+            done()
+          })
+      })
+
+      it('It should return status 500', (done) => {
+        request(app)
+          .get('/restaurant/hotdog')
+          .send({
+            latitude: -6.162305,
+          })
+          .end((err, response) => {
+            expect(err).toBe(null)
+            expect(response.status).toBe(500)
+            done()
+          })
+      })
+
+      it('It should return status 500', (done) => {
+        request(app)
+          .get('/restaurant/hotdog')
+          .send({
+            lon: 10.9873742,
+          })
+          .end((err, response) => {
+            expect(err).toBe(null)
+            expect(response.status).toBe(500)
             done()
           })
       })
@@ -308,6 +395,32 @@ describe('insert', () => {
             })
         })
       })
+
+      describe('Failed process', () => {
+        it('It should return 500', (done) => {
+          request(app)
+            .post('/favorites')
+            .end((err, response) => {
+              expect(err).toBe(null)
+              expect(response.body).toHaveProperty('message')
+              expect(response.status).toBe(500)
+              done()
+            })
+        })
+        it('It should return 500', (done) => {
+          request(app)
+            .post('/favorites')
+            .set({
+              restaurantId: '18654033'
+            })
+            .end((err, response) => {
+              expect(err).toBe(null)
+              expect(response.body).toHaveProperty('message')
+              expect(response.status).toBe(500)
+              done()
+            })
+        })
+      })
     })
 
     describe('GET /favorites', () => {
@@ -343,6 +456,16 @@ describe('insert', () => {
         it('It should return 500 because id too long and more than 12 string', (done) => {
           request(app)
             .delete(`/favorites/${idRestaurant + 1}`)
+            .end((err, response) => {
+              expect(err).toBe(null)
+              expect(response.body).toHaveProperty('message')
+              expect(response.status).toBe(500)
+              done()
+            })
+        })
+        it('It should return 500 because id too short and less than 12 string', (done) => {
+          request(app)
+            .delete(`/favorites/${idRestaurant - 1 }`)
             .end((err, response) => {
               expect(err).toBe(null)
               expect(response.body).toHaveProperty('message')
