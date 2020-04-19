@@ -17,7 +17,7 @@ describe('insert', () => {
   });
 
   afterAll(async () => {
-    // await db.dropDatabase(dbName)
+    await db.dropDatabase(dbName)
     await connection.close();
     await db.close();
   });
@@ -36,6 +36,17 @@ describe('insert', () => {
       })
     })
 
+    describe('Failed Process', () => {
+      it('It should return error and return status 404', (done) => {
+        request(app)
+          .post('/anger')
+          .end((err, response) => {
+            expect(err).toBe(null)
+            expect(response.status).toBe(404)
+            done()
+          })
+      })
+    })
   })
 
   describe('GET /contempt', () => {
@@ -51,6 +62,19 @@ describe('insert', () => {
           })
       })
     })
+
+    describe('Failed Process', () => {
+      it('It should return error and return status 404', (done) => {
+        request(app)
+          .post('/contempt')
+          .end((err, response) => {
+            expect(err).toBe(null)
+            expect(response.status).toBe(404)
+            done()
+          })
+      })
+    })
+    
   })
 
   describe('GET /disgust', () => {
@@ -66,6 +90,19 @@ describe('insert', () => {
           })
       })
     })
+
+    describe('Failed Process', () => {
+      it('It should return error and return status 404', (done) => {
+        request(app)
+          .post('/disgust')
+          .end((err, response) => {
+            expect(err).toBe(null)
+            expect(response.status).toBe(404)
+            done()
+          })
+      })
+    })
+    
   })
 
   describe('GET /fear', () => {
@@ -81,6 +118,19 @@ describe('insert', () => {
           })
       })
     })
+
+    describe('Failed Process', () => {
+      it('It should return error and return status 404', (done) => {
+        request(app)
+          .post('/fear')
+          .end((err, response) => {
+            expect(err).toBe(null)
+            expect(response.status).toBe(404)
+            done()
+          })
+      })
+    })
+    
   })
 
   describe('GET /happiness', () => {
@@ -96,6 +146,19 @@ describe('insert', () => {
           })
       })
     })
+
+    describe('Failed Process', () => {
+      it('It should return error and return status 404', (done) => {
+        request(app)
+          .post('/happiness')
+          .end((err, response) => {
+            expect(err).toBe(null)
+            expect(response.status).toBe(404)
+            done()
+          })
+      })
+    })
+    
   })
 
   describe('GET /neutral', () => {
@@ -111,6 +174,18 @@ describe('insert', () => {
           })
       })
     })
+    describe('Failed Process', () => {
+      it('It should return error and return status 404', (done) => {
+        request(app)
+          .post('/neutral')
+          .end((err, response) => {
+            expect(err).toBe(null)
+            expect(response.status).toBe(404)
+            done()
+          })
+      })
+    })
+   
   })
 
   describe('GET /sadness', () => {
@@ -126,6 +201,19 @@ describe('insert', () => {
           })
       })
     })
+
+    describe('Failed Process', () => {
+      it('It should return error and return status 404', (done) => {
+        request(app)
+          .post('/sadness')
+          .end((err, response) => {
+            expect(err).toBe(null)
+            expect(response.status).toBe(404)
+            done()
+          })
+      })
+    })
+    
   })
 
   describe('GET /surprise', () => {
@@ -141,6 +229,19 @@ describe('insert', () => {
           })
       })
     })
+
+    describe('Failed Process', () => {
+      it('It should return error and return status 404', (done) => {
+        request(app)
+          .post('/surprise')
+          .end((err, response) => {
+            expect(err).toBe(null)
+            expect(response.status).toBe(404)
+            done()
+          })
+      })
+    })
+    
   })
 
   describe('GET /restaurant/:food', () => {
@@ -180,7 +281,6 @@ describe('insert', () => {
       },
       photo_url: "https://b.zmtcdn.com/data/reviews_photos/704/5aaf4097afbf96c586cd1669ab89c704_1551325975.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
       })
-      console.log(result.ops[0].id, '>>>>>>>>>>>>>>>>>>>>>')
       idRestaurant = result.ops[0]._id
     });
 
@@ -233,6 +333,18 @@ describe('insert', () => {
               expect(err).toBe(null)
               expect(response.body).toHaveProperty('message')
               expect(response.status).toBe(200)
+              done()
+            })
+        })
+      })
+      describe('Failed message', () => {
+        it('It should return 500 because id too long and more than 12 string', (done) => {
+          request(app)
+            .delete(`/favorites/${idRestaurant + 1}`)
+            .end((err, response) => {
+              expect(err).toBe(null)
+              expect(response.body).toHaveProperty('message')
+              expect(response.status).toBe(500)
               done()
             })
         })

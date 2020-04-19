@@ -1,12 +1,17 @@
 const express = require('express');
 const app = express();
-const RestaurantRouter = require('./router')
+const routes = require('./routes')
 const {dbName, client} = require('./config/config')
+const morgan = require('morgan')
+const errorHandler = require('./middlewares/errorhandler')
+const cors = require('cors')
 
+
+app.use(cors())
+app.use(morgan('tiny'))
 app.use(express.urlencoded({ 
     extended: false 
 }))
-
 app.use(express.json())
 
 
@@ -21,8 +26,8 @@ client.connect(err => {
     next()
   })
 
-  app.use(RestaurantRouter)
-  // app.use(errorHandler)
+  app.use(routes)
+  app.use(errorHandler)
 })
 
 module.exports = app
