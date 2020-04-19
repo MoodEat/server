@@ -1,6 +1,4 @@
 const { ObjectId } = require('mongodb')
-const Redis = require('ioredis')
-const redis = new Redis()
 const axios = require('axios')
 
 class Controller {
