@@ -1,22 +1,13 @@
 const { ObjectId } = require('mongodb').ObjectID
 const axios = require('axios')
-const Redis = require('ioredis')
-const redis = new Redis()
 
 class favoriteController {
   static async findFavorites (req, res, next) {        
     try {
-        const restaurant = await redis.get('/favorites')
-        if (restaurant) {
-            res.json(JSON.parse(restaurant))
-        } else {
-            const db = req.db
-            const collection = db.collection('Restaurant')
-            const data = await collection.find({}).toArray(); 
-            await redis.set('/favorites', JSON.stringify(data))   
-            const result = await redis.get('/favorites')    
-            res.status(200).json(JSON.parse(result))
-        }
+      const db = req.db
+      const collection = db.collection('Restaurant')
+      const data = await collection.find({}).toArray();   
+      res.status(200).json(result)
     } catch (error) {
         next(error)
     } 
@@ -44,7 +35,6 @@ class favoriteController {
               location: data.location,
               photo_url: data.thumb
           })
-          await redis.flushdb()
           res.status(201).json(result.ops[0])
       } catch (error) {
         next(error)
@@ -59,7 +49,6 @@ class favoriteController {
           const result = await collection.deleteOne({
               _id : ObjectId(id)
           })
-          await redis.flushdb()
           res.status(200).json({message: 'Deleted data is successfully'})
       } catch (error) {
         next(error)
