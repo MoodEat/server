@@ -156,11 +156,12 @@ class Controller {
 
     static async deleteFavorites (req, res) {
         let id = req.params.id // ini bukan restauran ID tapi _id yg dari mongoDB
+        console.log(id)
         try {
             const db = req.db
             const collection = db.collection('Restaurant')
             const result = await collection.deleteOne({
-                _id : id
+                _id : ObjectId(id)
             })
             res.status(200).json({message: 'Deleted data is successfully'})
         } catch (error) {

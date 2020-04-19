@@ -2,7 +2,6 @@ require("dotenv").config();
 const request = require('supertest')
 const app = require('../app') 
 const {MongoClient} = require('mongodb');
-const { ObjectId } = require('mongodb')
 const dbName = 'MoodEatTest';
 const uri = 'mongodb://localhost:27017'
 
@@ -182,7 +181,7 @@ describe('insert', () => {
       photo_url: "https://b.zmtcdn.com/data/reviews_photos/704/5aaf4097afbf96c586cd1669ab89c704_1551325975.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"
       })
       console.log(result.ops[0].id, '>>>>>>>>>>>>>>>>>>>>>')
-      idRestaurant = result.ops[0].id
+      idRestaurant = result.ops[0]._id
     });
 
     afterAll(async () => {

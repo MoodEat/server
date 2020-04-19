@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1587258401837" clover="3.2.0">
-  <project timestamp="1587258401837" name="All files">
-    <metrics statements="113" coveredstatements="101" conditionals="2" coveredconditionals="1" methods="15" coveredmethods="15" elements="130" coveredelements="117" complexity="0" loc="113" ncloc="113" packages="2" files="4" classes="4"/>
+<coverage generated="1587258783151" clover="3.2.0">
+  <project timestamp="1587258783152" name="All files">
+    <metrics statements="114" coveredstatements="102" conditionals="2" coveredconditionals="1" methods="15" coveredmethods="15" elements="131" coveredelements="118" complexity="0" loc="114" ncloc="114" packages="2" files="4" classes="4"/>
     <package name="server">
-      <metrics statements="108" coveredstatements="96" conditionals="2" coveredconditionals="1" methods="15" coveredmethods="15"/>
+      <metrics statements="109" coveredstatements="97" conditionals="2" coveredconditionals="1" methods="15" coveredmethods="15"/>
       <file name="app.js" path="/Users/hikmanisyarifulfajar/Documents/FinalProject/server/app.js">
         <metrics statements="15" coveredstatements="15" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
@@ -23,7 +23,7 @@
         <line num="28" count="1" type="stmt"/>
       </file>
       <file name="controller.js" path="/Users/hikmanisyarifulfajar/Documents/FinalProject/server/controller.js">
-        <metrics statements="78" coveredstatements="66" conditionals="0" coveredconditionals="0" methods="13" coveredmethods="13"/>
+        <metrics statements="79" coveredstatements="67" conditionals="0" coveredconditionals="0" methods="13" coveredmethods="13"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
@@ -99,9 +99,10 @@
         <line num="160" count="1" type="stmt"/>
         <line num="161" count="1" type="stmt"/>
         <line num="162" count="1" type="stmt"/>
-        <line num="165" count="1" type="stmt"/>
-        <line num="167" count="0" type="stmt"/>
-        <line num="173" count="1" type="stmt"/>
+        <line num="163" count="1" type="stmt"/>
+        <line num="166" count="1" type="stmt"/>
+        <line num="168" count="0" type="stmt"/>
+        <line num="174" count="1" type="stmt"/>
       </file>
       <file name="router.js" path="/Users/hikmanisyarifulfajar/Documents/FinalProject/server/router.js">
         <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
