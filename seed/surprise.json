@@ -1,17 +1,22 @@
 [
     {
-        "food": "popcorn"
+        "food": "popcorn",
+        "image": "https://i.imgur.com/leraQVJ.jpg"
     },
     {
-        "food": "martabak"
+        "food": "martabak",
+        "image": "https://i.imgur.com/6Lwtz3k.jpg"
     },
     {
-        "food": "burger"
+        "food": "burger",
+        "image": "https://i.imgur.com/SNafu5z.jpg"
     },
     {
-        "food": "pizza"
+        "food": "pizza",
+        "image": "https://i.imgur.com/K6AXtBE.jpg"
     },
     {
-        "food": "cake"
+        "food": "cake",
+        "image": "https://i.imgur.com/fKb2Mkj.jpg"
     }
 ]

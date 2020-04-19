@@ -4,12 +4,35 @@ const redis = new Redis()
 const axios = require('axios')
 
 class Controller {
-    static async findAngry (req, res) {        
+    static async findAnger (req, res) {        
         try {
             const db = req.db
             const collection = db.collection('anger')
-            const result = await collection.find({}).toArray(); 
-            console.log(result)          
+            const result = await collection.find({}).toArray();        
+            res.status(200).json(result)
+        } catch (error) {
+            res.status(500).json({
+                message: 'Internal Server Error'
+            })
+        } 
+    }
+
+    static async findContempt (req, res) {        
+        try {
+            const db = req.db
+            const collection = db.collection('contempt')
+            const result = await collection.find({}).toArray();            
+            res.status(200).json(result)
+        } catch (error) {
+            res.status(500).json(error)
+        } 
+    }
+
+    static async findDisgust (req, res) {        
+        try {
+            const db = req.db
+            const collection = db.collection('disgust')
+            const result = await collection.find({}).toArray();            
             res.status(200).json(result)
         } catch (error) {
             res.status(500).json(error)
@@ -27,10 +50,10 @@ class Controller {
         } 
     }
 
-    static async findSad (req, res) {        
+    static async findHappiness (req, res) {        
         try {
             const db = req.db
-            const collection = db.collection('sad')
+            const collection = db.collection('happiness')
             const result = await collection.find({}).toArray();            
             res.status(200).json(result)
         } catch (error) {
@@ -38,10 +61,10 @@ class Controller {
         } 
     }
 
-    static async findHappy (req, res) {        
+    static async findNeutral (req, res) {        
         try {
             const db = req.db
-            const collection = db.collection('happy')
+            const collection = db.collection('neutral')
             const result = await collection.find({}).toArray();            
             res.status(200).json(result)
         } catch (error) {
@@ -49,10 +72,10 @@ class Controller {
         } 
     }
 
-    static async findCalm (req, res) {        
+    static async findSadness (req, res) {        
         try {
             const db = req.db
-            const collection = db.collection('calm')
+            const collection = db.collection('sadness')
             const result = await collection.find({}).toArray();            
             res.status(200).json(result)
         } catch (error) {
@@ -60,43 +83,10 @@ class Controller {
         } 
     }
 
-    static async findSurprised (req, res) {        
+    static async findSurprise (req, res) {        
         try {
             const db = req.db
-            const collection = db.collection('surprised')
-            const result = await collection.find({}).toArray();            
-            res.status(200).json(result)
-        } catch (error) {
-            res.status(500).json(error)
-        } 
-    }
-
-    static async findConfused (req, res) {        
-        try {
-            const db = req.db
-            const collection = db.collection('confused')
-            const result = await collection.find({}).toArray();            
-            res.status(200).json(result)
-        } catch (error) {
-            res.status(500).json(error)
-        } 
-    }
-
-    static async findDisgusted (req, res) {        
-        try {
-            const db = req.db
-            const collection = db.collection('disgusted')
-            const result = await collection.find({}).toArray();            
-            res.status(200).json(result)
-        } catch (error) {
-            res.status(500).json(error)
-        } 
-    }
-
-    static async findFavorites (req, res) {        
-        try {
-            const db = req.db
-            const collection = db.collection('Favorites')
+            const collection = db.collection('surprise')
             const result = await collection.find({}).toArray();            
             res.status(200).json(result)
         } catch (error) {
@@ -106,38 +96,75 @@ class Controller {
 
     static async findRestaurant (req, res) {
         try {
-            const collection = req.collection
-            const result = await collection.findOne({
-                _id: ObjectId(req.params.id)
+            const { data } = await axios ({
+                url: `https://developers.zomato.com/api/v2.1/search?entity_id=74&entity_type=city&q=${req.params.food}`,
+                method: "GET",
+                headers: {
+                    'user-key': "a4d87ea089e4302deea73b2dd99574b1"
+                }
             })
+            let result = data.restaurants.map( el => {
+                return {
+                    id: el.restaurant.id,
+                    name: el.restaurant.name,
+                    location: el.restaurant.location,
+                    photo_url: el.restaurant.thumb
+                }
+            })
+
             res.status(200).json(result)
         } catch (error) {
             res.status(500).json(error)
         }
     }
 
-    static async createFavorites (req, res) {
+    static async findFavorites (req, res) {        
         try {
-            const collection = req.collection
-            const { RestaurantId } = req.body
-            const result = await collection.insertOne({
-                RestaurantId
+            const db = req.db
+            const collection = db.collection('Restaurant')
+            const result = await collection.find({}).toArray();          
+            res.status(200).json(result)
+        } catch (error) {
+            res.status(500).json(error)
+        } 
+    }
+
+    static async createFavorites (req, res) {
+        let res_id = req.body.restaurantId
+        try {
+            const db = req.db
+            const collection = db.collection('Restaurant')
+            const { data } = await axios ({
+                url: `https://developers.zomato.com/api/v2.1/restaurant`,
+                method: "POST",
+                headers: {
+                    'user-key': "a4d87ea089e4302deea73b2dd99574b1"
+                },
+                params: {
+                    res_id
+                }
             })
-            await redis.flushdb()
-            res.status(201).json(result)
-        } catch (error) {            
+            const result = await collection.insertOne({
+                id: data.id,
+                name: data.name,
+                location: data.location,
+                photo_url: data.thumb
+            })
+            res.status(201).json(result.ops[0])
+        } catch (error) {
             res.status(500).json(error)
         }
     }
 
     static async deleteFavorites (req, res) {
+        let id = req.params.id // ini bukan restauran ID tapi _id yg dari mongoDB
         try {
-            const collection = req.collection
+            const db = req.db
+            const collection = db.collection('Restaurant')
             const result = await collection.deleteOne({
-                _id: ObjectId(req.params.id)
+                _id : id
             })
-            await redis.flushdb()
-            res.status(200).json(result)
+            res.status(200).json({message: 'Deleted data is successfully'})
         } catch (error) {
             res.status(500).json(error)
         }
