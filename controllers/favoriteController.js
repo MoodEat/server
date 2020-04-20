@@ -22,7 +22,6 @@ class favoriteController {
 
   static async createFavorites (req, res, next) {
       let res_id = req.body.restaurantId
-      let UserId = ObjectId(req.body.UserId)
       try {
           const { data } = await axios ({
               url: `https://developers.zomato.com/api/v2.1/restaurant`,
@@ -41,7 +40,7 @@ class favoriteController {
                 url: data.url,
                 location: data.location,
                 photo_url: data.thumb,
-                UserId
+                UserId: req.decoded.id
             }
          )
         await restaurant.save()

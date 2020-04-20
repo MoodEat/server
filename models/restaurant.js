@@ -10,10 +10,7 @@ const restaurantSchema = new mongoose.Schema({
     url: String,
     location: Object,
     photo_url: String,
-    UserId: {
-        type: String,
-        required: [true, 'UserId is required']
-    }
+    UserId: String
 }, {
     collection: 'Restaurant'
 })
