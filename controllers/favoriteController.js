@@ -1,23 +1,23 @@
-const { ObjectId } = require('mongodb').ObjectID
+const { ObjectId } = require('mongodb')
 const axios = require('axios')
+const Restaurant = require('../models/restaurant');
 
 class favoriteController {
   static async findFavorites (req, res, next) {        
     try {
-      const db = req.db
-      const collection = db.collection('Restaurant')
-      const data = await collection.find({}).toArray();   
-      res.status(200).json(data)
+        const data = await Restaurant.find({
+            UserId: req.decoded.id
+        })
+        res.status(200).json(data)
     } catch (error) {
-        next(error)
+        res.status(404).json(error)
     } 
   }
 
   static async createFavorites (req, res, next) {
       let res_id = req.body.restaurantId
+      let UserId = ObjectId(req.body.UserId)
       try {
-          const db = req.db
-          const collection = db.collection('Restaurant')
           const { data } = await axios ({
               url: `https://developers.zomato.com/api/v2.1/restaurant`,
               method: "POST",
@@ -28,30 +28,37 @@ class favoriteController {
                   res_id
               }
           })
-          const result = await collection.insertOne({
-              idRestaurant: data.id,
-              name: data.name,
-              url: data.url,
-              location: data.location,
-              photo_url: data.thumb
-          })
-          res.status(201).json(result.ops[0])
+          const restaurant = new Restaurant(
+            {
+                idRestaurant: data.id,
+                name: data.name,
+                url: data.url,
+                location: data.location,
+                photo_url: data.thumb,
+                UserId
+            }
+         )
+        await restaurant.save()
+        res.status(201).json(restaurant)
       } catch (error) {
-        next(error)
+        res.status(404).json(error)
       }
   }
 
   static async deleteFavorites (req, res, next) {
-      let id = req.params.id // ini bukan restauran ID tapi _id yg dari mongoDB
       try {
-          const db = req.db
-          const collection = db.collection('Restaurant')
-          const result = await collection.deleteOne({
-              _id : ObjectId(id)
-          })
-          res.status(200).json({message: 'Deleted data is successfully'})
+        const restaurant = await Restaurant.findByIdAndDelete(req.params.id)
+        if (restaurant) { 
+            res.status(200).json({
+                message: 'Restaurant has been deleted from favorites'
+            })
+        } else {
+            res.status(404).json({ 
+                message: "No item found" 
+            })
+        }
       } catch (error) {
-        next(error)
+            next(error)
       }
   }
 }

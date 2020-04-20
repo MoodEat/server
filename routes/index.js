@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const categoriesController = require('../controllers/categoriesController')
+const userController = require('../controllers/userController')
 const restaurant = require('./restaurant')
 const favorites = require('./favorites')
 
@@ -15,5 +16,8 @@ router.get('/surprise', categoriesController.findSurprise)
 
 router.use('/restaurant', restaurant)
 router.use('/favorites', favorites)
+
+router.post('/register', userController.register)
+router.post('/login', userController.login)
 
 module.exports = router
