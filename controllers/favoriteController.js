@@ -8,9 +8,15 @@ class favoriteController {
         const data = await Restaurant.find({
             UserId: req.decoded.id
         })
-        res.status(200).json(data)
+        if(data.length > 0) {
+            res.status(200).json(data)
+        } else {
+            res.status(404).json({
+                message: "There isn't favorites restaurant"
+            })
+        }
     } catch (error) {
-        res.status(404).json(error)
+        res.status(400).json(error)
     } 
   }
 
@@ -41,7 +47,7 @@ class favoriteController {
         await restaurant.save()
         res.status(201).json(restaurant)
       } catch (error) {
-        res.status(404).json(error)
+        res.status(400).json(error)
       }
   }
 
@@ -54,7 +60,7 @@ class favoriteController {
             })
         } else {
             res.status(404).json({ 
-                message: "No item found" 
+                message: "No restaurant found" 
             })
         }
       } catch (error) {
