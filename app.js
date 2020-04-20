@@ -1,12 +1,12 @@
 const express = require('express');
 const app = express();
 const routes = require('./routes')
-// const {dbName, client} = require('./config/config')
 const morgan = require('morgan')
 const errorHandler = require('./middlewares/errorhandler')
 const cors = require('cors')
+const mongoose = require('mongoose');
+mongoose.set('useCreateIndex', true)
 
-const { MongoClient } = require('mongodb')
 const db_name = process.env.DB_NAME
 const user = process.env.DB_USER
 const password = process.env.DB_PASSWORD
@@ -19,37 +19,17 @@ app.use(express.urlencoded({
 }))
 app.use(express.json())
 
-// client.connect(err => {
-//   if (err) console.log(err)
-//   else console.log('connct mongodb successfully')
-
-//   const db = client.db(dbName)
-
-//   app.use((req, res, next) => {
-//     req.db = db
-//     next()
-//   })
-
-//   app.use(routes)
-//   app.use(errorHandler)
-// })
-
-MongoClient.connect(uri, {
-  useUnifiedTopology: true
-})
-.then( client => {
-    console.log('connected to database')
-    const db = client.db(db_name)
-    app.use((req, res, next) => {
-      req.db = db
-      next()
+mongoose.connect(uri, {
+  useUnifiedTopology: true,
+  useNewUrlParser: true
+}, () => {
+  console.log('connected to database')
+  app.use((req, res, next) => {
+    next()
   })
   app.use(routes)
   app.use(errorHandler)
 })
-.catch(error => {
-    console.error(error)
-  })
 
 module.exports = app
 
