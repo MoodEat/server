@@ -3,7 +3,8 @@ mongoose.set('useCreateIndex', true)
 
 const userSchema = new mongoose.Schema({
     name: {
-        type: String
+        type: String,
+        required: [true, 'name is required']
     },
     email: {
         type: String,
