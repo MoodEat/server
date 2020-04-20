@@ -12,7 +12,7 @@ class favoriteController {
             res.status(200).json(data)
         } else {
             res.status(404).json({
-                message: "There isn't favorites restaurant"
+                message: "There isn't favorite restaurant"
             })
         }
     } catch (error) {
