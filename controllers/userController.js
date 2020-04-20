@@ -25,7 +25,7 @@ class UserController {
                 })          
                 res.status(201).json({
                     token,
-                    UserId: result._id
+                    name: result.name
                 })
             }
         } catch (error) {
@@ -48,7 +48,7 @@ class UserController {
                     })
                     res.status(200).json({
                         token,
-                        UserId: result._id
+                        name: result.name
                     })
                 } else {
                     res.status(404).json({

@@ -1,4 +1,3 @@
-const { ObjectId } = require('mongodb')
 const axios = require('axios')
 const Restaurant = require('../models/restaurant');
 
@@ -16,7 +15,7 @@ class favoriteController {
             })
         }
     } catch (error) {
-        res.status(400).json(error)
+        next(error)
     } 
   }
 
