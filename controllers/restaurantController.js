@@ -5,8 +5,8 @@ class restaurantController {
   static async findRestaurant (req, res, next) {
     try {
         let payload = {
-          lat : req.body.lat,
-          lon : req.body.longitude
+          lat : req.headers.lat,
+          lon : req.headers.longitude
         }
         const { data } = await axios ({
             url: `https://developers.zomato.com/api/v2.1/search?entity_id=74&entity_type=city&q=${req.params.food}&lat=${payload.lat}&lon=${payload.lon}&radius=2000&sort=real_distance`,
