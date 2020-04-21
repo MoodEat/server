@@ -9,8 +9,8 @@
 MoodEat comes to help you to answer the age-old question, "What should I eat?". This app can match your mood to food and help you to get restaurant recommendations based on your mood, so you can decide what kind of food to eat and where places to eat. 
 The user will take a photo, and then the app can detect the mood based on the picture. After that, the user will be provided with food options and closest restaurants to their location. 
 
-The front-end team consisted of Hilmi and Arda, and the technology utilized includes: React, React Native, Redux, Expo, and Azure Cloudinary. 
-The back-end team consisted of Ipul and Ulfa, and the technology utilized includes: NodeJS, ExpressJS, MongoDB Atlas, Mongoose, Jest, and AWS EC2.
+The front-end team consisted of Hilmi and Arda, and the technology utilized includes: React, React Native, React Navigation, Redux, Expo, Cloudinary, and UI Kitten.
+The back-end team consisted of Ipul and Ulfa, and the technology utilized includes: NodeJS, ExpressJS, MongoDB Atlas, Mongoose, Jest, Lodash and AWS EC2.
 
 ***
 
