@@ -1,18 +1,18 @@
 [
     {
-        "food": "chocolate",
+        "food": "Chocolate",
         "image": "https://i.imgur.com/k5u1g1n.jpg"
     },
     {
-        "food": "ice cream",
+        "food": "Ice Cream",
         "image": "https://i.imgur.com/ZE5M1ls.jpg"
     },
     {
-        "food": "brownies",
+        "food": "Brownies",
         "image": "https://i.imgur.com/nVxUkbd.jpg"
     },
     {
-        "food": "pie",
+        "food": "Pie",
         "image": "https://i.imgur.com/De6r0OG.jpg"
     }
 ]

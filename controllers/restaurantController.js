@@ -1,5 +1,4 @@
 const axios = require('axios')
-const _ = require('lodash')
 
 class restaurantController {
   static async findRestaurant (req, res, next) {
@@ -26,7 +25,7 @@ class restaurantController {
             }
         })
         result = result.filter(el => {
-          return el.name.includes(_.startCase(req.params.food))
+          return el.name.includes(req.params.food)
         })
         res.status(200).json(result)
     } catch (error) {
