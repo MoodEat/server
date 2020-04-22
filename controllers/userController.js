@@ -49,12 +49,12 @@ class UserController {
                         token
                     })
                 } else {
-                    res.status(404).json({
+                    res.status(400).json({
                         message: "Email or password is wrong"
                     })
                 }
             } else {
-                res.status(404).json({
+                res.status(400).json({
                     message: "Your email address is not registered"
                 })
             }
