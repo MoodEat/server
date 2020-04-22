@@ -1,0 +1,22 @@
+[
+    {
+        "food": "Popcorn",
+        "image": "https://i.imgur.com/leraQVJ.jpg"
+    },
+    {
+        "food": "Martabak",
+        "image": "https://i.imgur.com/6Lwtz3k.jpg"
+    },
+    {
+        "food": "Burger",
+        "image": "https://i.imgur.com/SNafu5z.jpg"
+    },
+    {
+        "food": "Pizza",
+        "image": "https://i.imgur.com/K6AXtBE.jpg"
+    },
+    {
+        "food": "Cake",
+        "image": "https://i.imgur.com/fKb2Mkj.jpg"
+    }
+]

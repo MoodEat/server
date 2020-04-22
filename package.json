@@ -1,0 +1,35 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "NODE_ENV=test jest --detectOpenHandles --runInBand --coverage",
+    "dev": "NODE_ENV=development nodemon bin/http.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MoodEat/server.git"
+  },
+  "keywords": [],
+  "author": "Andreas Nandiwardhana, Muhammad Hilmi Muharromi, Hikmani Syariful Fajar, Ulfa Hasanah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MoodEat/server/issues"
+  },
+  "homepage": "https://github.com/MoodEat/server#readme",
+  "dependencies": {
+    "@shelf/jest-mongodb": "^1.1.5",
+    "axios": "^0.19.2",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jest": "^25.3.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.5.6",
+    "mongoose": "^5.9.9",
+    "morgan": "^1.10.0",
+    "supertest": "^4.0.2"
+  }
+}

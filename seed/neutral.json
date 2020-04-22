@@ -1,0 +1,18 @@
+[
+    {
+        "food": "Seafood",
+        "image": "https://i.imgur.com/gpWyA0m.jpg"
+    },
+    {
+        "food": "Pudding",
+        "image": "https://i.imgur.com/QLgZqvI.jpg"
+    },
+    {
+        "food": "Donuts",
+        "image": "https://i.imgur.com/aI1X9Sv.jpg"
+    },
+    {
+        "food": "Soto",
+        "image": "https://i.imgur.com/TzNmkjI.jpg"
+    }
+]
