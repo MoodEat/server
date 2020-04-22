@@ -10,7 +10,7 @@ class UserController {
                 email: req.body.email
             })
             if(result) {
-                res.status(404).json({
+                res.status(400).json({
                     message: "Your email address has been registered"
                 })
             }  else {
@@ -51,12 +51,12 @@ class UserController {
                         name: result.name
                     })
                 } else {
-                    res.status(404).json({
+                    res.status(400).json({
                         message: "Email or password is wrong"
                     })
                 }
             } else {
-                res.status(404).json({
+                res.status(400).json({
                     message: "Your email address is not registered"
                 })
             }

@@ -7,13 +7,7 @@ class favoriteController {
         const data = await Restaurant.find({
             UserId: req.decoded.id
         })
-        if(data.length > 0) {
-            res.status(200).json(data)
-        } else {
-            res.status(404).json({
-                message: "There isn't favorite restaurant"
-            })
-        }
+        res.status(200).json(data)
     } catch (error) {
         next(error)
     } 
