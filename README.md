@@ -10,7 +10,7 @@ MoodEat comes to help you to answer the age-old question, "What should I eat?". 
 The user will take a photo, and then the app can detect the mood based on the picture. After that, the user will be provided with food options and closest restaurants to their location. 
 
 The front-end team consisted of Hilmi and Arda, and the technology utilized includes: React, React Native, React Navigation, Redux, Expo, Cloudinary, and UI Kitten.
-The back-end team consisted of Ipul and Ulfa, and the technology utilized includes: NodeJS, ExpressJS, MongoDB Atlas, Mongoose, Jest, Lodash and AWS EC2.
+The back-end team consisted of Ipul and Ulfa, and the technology utilized includes: NodeJS, ExpressJS, MongoDB Atlas, Mongoose, Jest, and AWS EC2.
 
 ***
 
@@ -131,22 +131,22 @@ The back-end team consisted of Ipul and Ulfa, and the technology utilized includ
     [
         {
             "_id": "5e9a555e0196acce7767916f",
-            "food": "hotdog",
+            "food": "Hotdog",
             "image": "https://i.imgur.com/OhRj8Ct.jpg"
         },
         {
             "_id": "5e9a555e0196acce77679170",
-            "food": "ayam geprek",
+            "food": "Ayam Geprek",
             "image": "https://i.imgur.com/yQeRJ7S.jpg"
         },
         {
             "_id": "5e9a555e0196acce77679171",
-            "food": "rujak",
+            "food": "Rujak",
             "image": "https://i.imgur.com/p3KQZ63.jpg"
         },
         {
             "_id": "5e9a555e0196acce77679172",
-            "food": "seblak",
+            "food": "Seblak",
             "image": "https://i.imgur.com/M8K1Q1X.jpg"
         }
     ]
@@ -192,22 +192,22 @@ The back-end team consisted of Ipul and Ulfa, and the technology utilized includ
     [
         {
             "_id": "5e9a55940a4e6e0c9b53c97d",
-            "food": "ketoprak",
+            "food": "Ketoprak",
             "image": "https://i.imgur.com/mEtNt7n.jpg"
         },
         {
             "_id": "5e9a55940a4e6e0c9b53c97e",
-            "food": "nasi padang",
+            "food": "Nasi Padang",
             "image": "https://i.imgur.com/zd6WI8p.jpg"
         },
         {
             "_id": "5e9a55940a4e6e0c9b53c97f",
-            "food": "ramen",
+            "food": "Ramen",
             "image": "https://i.imgur.com/QXT8htm.jpg"
         },
         {
             "_id": "5e9a55940a4e6e0c9b53c980",
-            "food": "gorengan",
+            "food": "Gorengan",
             "image": "https://i.imgur.com/RHJMIxv.jpg"
         }
     ]
@@ -253,22 +253,22 @@ The back-end team consisted of Ipul and Ulfa, and the technology utilized includ
     [
         {
             "_id": "5e9a55dfe28488bf729138af",
-            "food": "sushi",
+            "food": "Sushi",
             "image": "https://i.imgur.com/RQBe6Qz.jpg"
         },
         {
             "_id": "5e9a55dfe28488bf729138b0",
-            "food": "bakpia",
+            "food": "Bakpia",
             "image": "https://i.imgur.com/8w9rgjQ.jpg"
         },
         {
             "_id": "5e9a55dfe28488bf729138b1",
-            "food": "omelette",
+            "food": "Omelette",
             "image": "https://i.imgur.com/edNMFCC.jpg"
         },
         {
             "_id": "5e9a55dfe28488bf729138b2",
-            "food": "rawon",
+            "food": "Rawon",
             "image": "https://i.imgur.com/TZGSEtO.jpg"
         }
     ]
@@ -314,22 +314,22 @@ The back-end team consisted of Ipul and Ulfa, and the technology utilized includ
     [
         {
             "_id": "5e9a56099d536caadd8e68eb",
-            "food": "bakmi",
+            "food": "Bakmi",
             "image": "https://i.imgur.com/1J8a9de.jpg"
         },
         {
             "_id": "5e9a56099d536caadd8e68ec",
-            "food": "sate",
+            "food": "Sate",
             "image": "https://i.imgur.com/NdKyy4f.jpg"
         },
         {
             "_id": "5e9a56099d536caadd8e68ed",
-            "food": "nasi goreng",
+            "food": "Nasi Goreng",
             "image": "https://i.imgur.com/5kom7yX.jpg"
         },
         {
             "_id": "5e9a56099d536caadd8e68ee",
-            "food": "spaghetty",
+            "food": "Spaghetty",
             "image": "https://i.imgur.com/ekdV0ZV.jpg"
         }
     ]
@@ -375,22 +375,22 @@ The back-end team consisted of Ipul and Ulfa, and the technology utilized includ
     [
         {
             "_id": "5e9a48d791ec05bde9ce885e",
-            "food": "pie",
+            "food": "Pie",
             "image": "https://i.imgur.com/De6r0OG.jpg"
         },
         {
             "_id": "5e9a48d791ec05bde9ce885f",
-            "food": "brownies",
+            "food": "Brownies",
             "image": "https://i.imgur.com/nVxUkbd.jpg"
         },
         {
             "_id": "5e9a48d791ec05bde9ce8860",
-            "food": "ice cream",
+            "food": "Ice Cream",
             "image": "https://i.imgur.com/ZE5M1ls.jpg"
         },
         {
             "_id": "5e9a48d791ec05bde9ce8861",
-            "food": "chocolate",
+            "food": "Chocolate",
             "image": "https://i.imgur.com/k5u1g1n.jpg"
         }
     ]
@@ -436,22 +436,22 @@ The back-end team consisted of Ipul and Ulfa, and the technology utilized includ
     [
         {
             "_id": "5e9a552bb99ed38a860e3207",
-            "food": "pudding",
+            "food": "Pudding",
             "image": "https://i.imgur.com/QLgZqvI.jpg"
         },
         {
             "_id": "5e9a552bb99ed38a860e3208",
-            "food": "seafood",
+            "food": "Seafood",
             "image": "https://i.imgur.com/gpWyA0m.jpg"
         },
         {
             "_id": "5e9a552bb99ed38a860e3209",
-            "food": "soto",
+            "food": "Soto",
             "image": "https://i.imgur.com/TzNmkjI.jpg"
         },
         {
             "_id": "5e9a552bb99ed38a860e320a",
-            "food": "donuts",
+            "food": "Donuts",
             "image": "https://i.imgur.com/aI1X9Sv.jpg"
         }
     ]
@@ -497,22 +497,22 @@ The back-end team consisted of Ipul and Ulfa, and the technology utilized includ
     [
         {
             "_id": "5e9a53e3f94d2793c9f6e39a",
-            "food": "gado-gado",
+            "food": "Gado-gado",
             "image": "https://i.imgur.com/R3LWEvn.jpg"
         },
         {
             "_id": "5e9a53e3f94d2793c9f6e39b",
-            "food": "somay",
+            "food": "Somay",
             "image": "https://i.imgur.com/Harpe0b.jpg"
         },
         {
             "_id": "5e9a53e3f94d2793c9f6e39c",
-            "food": "kebab",
+            "food": "Kebab",
             "image": "https://i.imgur.com/xUbQSPj.jpg"
         },
         {
             "_id": "5e9a53e3f94d2793c9f6e39d",
-            "food": "bubur",
+            "food": "Bubur",
             "image": "https://i.imgur.com/KgDOnUu.jpg"
         }
     ]
@@ -558,22 +558,22 @@ The back-end team consisted of Ipul and Ulfa, and the technology utilized includ
     [
         {
             "_id": "5e9a546b3ecdcca967f3c7ee",
-            "food": "burger",
+            "food": "Burger",
             "image": "https://i.imgur.com/SNafu5z.jpg"
         },
         {
             "_id": "5e9a546b3ecdcca967f3c7ef",
-            "food": "pizza",
+            "food": "Pizza",
             "image": "https://i.imgur.com/K6AXtBE.jpg"
         },
         {
             "_id": "5e9a546b3ecdcca967f3c7f0",
-            "food": "martabak",
+            "food": "Martabak",
             "image": "https://i.imgur.com/6Lwtz3k.jpg"
         },
         {
             "_id": "5e9a546b3ecdcca967f3c7f1",
-            "food": "popcorn",
+            "food": "Popcorn",
             "image": "https://i.imgur.com/leraQVJ.jpg"
         },
         {
