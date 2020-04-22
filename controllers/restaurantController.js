@@ -3,7 +3,6 @@ const axios = require('axios')
 class restaurantController {
   static async findRestaurant (req, res, next) {
     try {
-      console.log('MASUK RESTAURANT CONTROLLER')
         let payload = {
           lat : req.headers.lat,
           lon : req.headers.longitude

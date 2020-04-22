@@ -1,9 +1,7 @@
 require("dotenv").config();
 const request = require('supertest')
 const app = require('../app_test')
-const jwt = require('jsonwebtoken')
-const {hashPassword, comparePassword} = require('../helpers/hashPassword')
-const ObjectID = require('mongoose').Types.ObjectId
+const { hashPassword } = require('../helpers/hashPassword')
 const User = require('../models/user')
 
 describe('User routing', () => {
